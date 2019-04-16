@@ -3,8 +3,8 @@
 
 'use strict'
 
-if (process.platform !== "win32") {
-  console.error("This script is only intended to be run on Windows")
+if (process.platform !== 'win32') {
+  console.error('This script is only intended to be run on Windows')
 }
 
 const path = require('path')
@@ -21,7 +21,7 @@ const argv = yargs
 
 async function uploadCrashReports () {
   const CONFIG = require('../config')
-  const crashesPath = path.join(process.env.TEMP, "Atom Crashes")
+  const crashesPath = path.join(process.env.TEMP, 'Atom Crashes')
   const crashes = glob.sync('/**/*.dmp', { root: crashesPath, nodir: true })
   const releaseVersion = CONFIG.computedAppVersion
   const bucketPath = argv.s3Path || `releases/v${releaseVersion}/`
