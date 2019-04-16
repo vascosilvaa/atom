@@ -90,6 +90,15 @@ jobs:
     displayName: Post-process test results
     condition: ne(variables['Atom.SkipTests'], 'true')
 
+  - script: >
+      node script\vsts\windows-run.js script\vsts\upload-crash-dumps.js --s3-path "vsts-artifacts/$(Build.BuildId)/
+    env:
+      ATOM_RELEASES_S3_KEY: $(ATOM_RELEASES_S3_KEY)
+      ATOM_RELEASES_S3_SECRET: $(ATOM_RELEASES_S3_SECRET)
+      ATOM_RELEASES_S3_BUCKET: $(ATOM_RELEASES_S3_BUCKET)
+    displayName: Upload crash dumps to S3 if any exist
+    condition: and(failed(), eq(variables['IsReleaseBranch'], 'true'))
+
   - task: PublishTestResults@2
     inputs:
       testResultsFormat: JUnit
