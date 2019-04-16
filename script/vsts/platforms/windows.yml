@@ -110,6 +110,13 @@ jobs:
 
   - task: PublishBuildArtifacts@1
     inputs:
+      PathtoPublish: ${TEMP}/Atom Crashes
+      ArtifactName: crash-reports.zip
+    displayName: Upload Crash Reports
+    condition: and(failed(), eq(variables['IsReleaseBranch'], 'false'))
+
+  - task: PublishBuildArtifacts@1
+    inputs:
       PathtoPublish: $(Build.SourcesDirectory)/out/atom-x64-windows.zip
       ArtifactName: atom-x64-windows.zip
       ArtifactType: Container
