@@ -11,6 +11,7 @@ branches:
   - master
   - /^[0-9.]+-releases$/
   - /^electron-[0-9.]+$/
+  - jr/debug-19148
 
 platform:
   - x64
@@ -20,6 +21,7 @@ environment:
   global:
     ATOM_DEV_RESOURCE_PATH: c:\projects\atom
     ATOM_JASMINE_REPORTER: list
+    CI: true
     TEST_JUNIT_XML_ROOT: c:\projects\junit-test-results
     NODE_VERSION: 8.9.3
 
