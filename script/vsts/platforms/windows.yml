@@ -96,7 +96,7 @@ jobs:
       ATOM_RELEASES_S3_KEY: $(ATOM_RELEASES_S3_KEY)
       ATOM_RELEASES_S3_SECRET: $(ATOM_RELEASES_S3_SECRET)
       ATOM_RELEASES_S3_BUCKET: $(ATOM_RELEASES_S3_BUCKET)
-    displayName: Upload crash dumps to S3 if any exist
+    displayName: Upload crash reports to S3 if any exist
     condition: and(failed(), eq(variables['IsReleaseBranch'], 'true'))
 
   - task: PublishTestResults@2
