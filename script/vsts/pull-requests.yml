@@ -5,9 +5,6 @@ resources:
   containers:
   - container: atom-linux-ci
     image: daviwil/atom-linux-ci:latest
-    env:
-      - CI: true
-      - CI_PROVIDER: VSTS
 
 jobs:
 
