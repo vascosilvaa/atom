@@ -103,12 +103,12 @@ waitsForPromise = (fn) ->
     )
   )
 
-disableFocusMethods = ->
-  ['fdescribe', 'ffdescribe', 'fffdescribe', 'fit', 'ffit', 'fffit'].forEach (methodName) ->
-    focusMethod = window[methodName]
-    window[methodName] = (description) ->
-      error = new Error('Focused spec is running on CI')
-      focusMethod description, -> throw error
+# disableFocusMethods = ->
+#   ['fdescribe', 'ffdescribe', 'fffdescribe', 'fit', 'ffit', 'fffit'].forEach (methodName) ->
+#     focusMethod = window[methodName]
+#     window[methodName] = (description) ->
+#       error = new Error('Focused spec is running on CI')
+#       focusMethod description, -> throw error
 
 requireSpecs = (testPath, specType) ->
   if fs.isDirectorySync(testPath)

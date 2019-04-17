@@ -72,7 +72,9 @@ describe('Workspace', () => {
 
   describe('serialization', () => {
     describe('when the workspace contains text editors', () => {
-      it('constructs the view with the same panes', () => {
+      fit('constructs the view with the same panes', () => {
+        throw new Error("Deliberate failure")
+
         const pane1 = atom.workspace.getActivePane()
         const pane2 = pane1.splitRight({ copyActiveItem: true })
         const pane3 = pane2.splitRight({ copyActiveItem: true })

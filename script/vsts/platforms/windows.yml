@@ -72,7 +72,7 @@ jobs:
       IS_SIGNED_ZIP_BRANCH: $(IsSignedZipBranch)
     displayName: Build Atom
 
-  - script: node script\vsts\windows-run.js script\test.cmd
+  - script: node script\vsts\windows-run.js script\test.cmd --core-renderer
     env:
       CI: true
       CI_PROVIDER: VSTS
